@@ -4,11 +4,11 @@ from datetime import datetime
 import praw
 
 def fetch_reddit_data():
-    reddit = praw.Reddit(
-        client_id="CRq15T0OCnr3sT_tXjMzlw",
-        client_secret="KiD1dP_fZ9TNUEn8z2qMP5eJyaDOCw",
-        user_agent="RedditPipeline/0.1 by u/Due_Goal_1091"
-    )
+  reddit = praw.Reddit(
+    client_id=os.getenv("CLIENT_ID"),
+    client_secret=os.getenv("CLIENT_SECRET"),
+    user_agent=os.getenv("USER_AGENT")
+)
 
     subreddit = reddit.subreddit("python")
     top_post = next(subreddit.top(limit=1))
